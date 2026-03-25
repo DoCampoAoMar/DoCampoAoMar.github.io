@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Músic</title>
     <style>
         * {
@@ -75,14 +75,95 @@
             border-radius: 20px;
         }
 
+        /* Estilo das logos - exatamente igual ao código anterior */
+        .logo {
+            position: fixed;
+            z-index: 100;
+            max-width: 200px;
+            max-height: 200px;
+            width: auto;
+            height: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 1;
+        }
+
+        /* Posições originais para PC */
+        .logo-bottom-right {
+            bottom: -40px;
+            right: 13px;
+        }
+
+        .logo-top-left {
+            top: -40px;
+            left: 13px;
+        }
+
+        /* Ajustes para tablets e telemóveis */
+        @media (max-width: 768px) {
+            .logo {
+                max-width: 100px;
+                max-height: 100px;
+            }
+            
+            /* Ajuste no body para dar espaço às logos em mobile */
+            body {
+                padding: 70px 20px 70px 20px;
+            }
+
+            /* POSIÇÕES PARA MOBILE: bottom 0px right 13px e top 0px left 13px */
+            .logo-bottom-right {
+                bottom: 0px;
+                right: 13px;
+            }
+
+            .logo-top-left {
+                top: 0px;
+                left: 13px;
+            }
+        }
+
+        /* Ajuste para modo paisagem (horizontal) no telemóvel */
+        @media (max-width: 900px) and (orientation: landscape) {
+            body {
+                padding: 55px 20px 55px 20px;
+            }
+            
+            .logo {
+                max-width: 65px;
+                max-height: 65px;
+            }
+
+            /* Mantém as posições corrigidas também em landscape */
+            .logo-bottom-right {
+                bottom: 0px;
+                right: 13px;
+            }
+
+            .logo-top-left {
+                top: 0px;
+                left: 13px;
+            }
+        }
+
+        /* Para tablets em modo retrato */
+        @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+            body {
+                padding: 80px 20px 80px 20px;
+            }
+            
+            .logo {
+                max-width: 120px;
+                max-height: 120px;
+            }
+        }
 
         @media (max-width: 480px) {
             audio {
                 max-width: 90%;
-            }
-            
-            body {
-                padding: 10px;
             }
             
             .audio-info {
@@ -90,7 +171,6 @@
                 margin-top: 15px;
             }
         }
-
       
         @media (orientation: landscape) and (max-height: 600px) {
             audio {
@@ -100,6 +180,9 @@
     </style>
 </head>
 <body>
+    <!-- Logo superior esquerda -->
+    <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo" class="logo logo-top-left">
+
     <div class="audio-container">
         <audio controls preload="auto">
             <source src="audio/audio1.mp3" type="audio/mpeg">
@@ -108,5 +191,8 @@
             Seu navegador não suporta a tag de áudio.
         </audio>
     </div>
+
+    <!-- Logo inferior direita -->
+    <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo" class="logo logo-bottom-right">
 </body>
 </html>
