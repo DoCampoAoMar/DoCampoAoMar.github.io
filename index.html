@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <script src="https://cdn.tailwindcss.com"></script>
+    <title>Galeria</title>
     <style>
         * {
             margin: 0;
@@ -24,6 +25,34 @@
             align-items: center;
             padding: 20px;
             position: relative;
+        }
+
+        /* Estilo base para ambas as logos */
+        .logo {
+            position: fixed;
+            z-index: 100;
+            max-width: 200px;
+            max-height: 200px;
+            width: auto;
+            height: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 1;
+        }
+
+        /* Logo inferior direita */
+        .logo-bottom-right {
+            bottom: -30px;
+            right: 30px;
+        }
+
+        /* Logo superior esquerda */
+        .logo-top-left {
+            top: -30px;
+            left: 30px;
         }
 
         .gallery-wrapper {
@@ -79,37 +108,20 @@
             border-radius: 12px;
         }
 
-        .logo {
-            position: fixed;
-            z-index: 100;
-            max-width: 200px;
-            max-height: 200px;
-            width: auto;
-            height: auto;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
-        }
-
-        .logo:hover {
-            opacity: 1;
-        }
-
-        /* Posições originais para PC */
-        .logo-bottom-right {
-            bottom: -40px;
-            right: 13px;
-        }
-
-        .logo-top-left {
-            top: -40px;
-            left: 13px;
-        }
-
-
         @media (max-width: 768px) {
             .logo {
                 max-width: 100px;
                 max-height: 100px;
+            }
+            
+            .logo-bottom-right {
+                bottom: 0px;
+                right: 13px;
+            }
+
+            .logo-top-left {
+                top: 0px;
+                left: 13px;
             }
             
             .gallery-wrapper {
@@ -123,17 +135,6 @@
             body {
                 padding: 70px 20px 70px 20px;
             }
-
-
-            .logo-bottom-right {
-                bottom: 0px;
-                right: 13px;
-            }
-
-            .logo-top-left {
-                top: 0px;
-                left: 13px;
-            }
         }
 
         @media (max-width: 640px) {
@@ -146,25 +147,23 @@
             }
         }
 
-
         @media (max-width: 900px) and (orientation: landscape) {
             body {
                 padding: 55px 20px 55px 20px;
             }
             
             .gallery-img {
-                max-width: 95px;
+                max-width: 100px;
             }
             
             .gallery-wrapper {
-                padding: 0.8rem;
+                padding: 1rem;
             }
             
             .logo {
                 max-width: 65px;
                 max-height: 65px;
             }
-
 
             .logo-bottom-right {
                 bottom: 0px;
@@ -176,22 +175,11 @@
                 left: 13px;
             }
         }
-
-
-        @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-            body {
-                padding: 80px 20px 80px 20px;
-            }
-            
-            .logo {
-                max-width: 120px;
-                max-height: 120px;
-            }
-        }
     </style>
 </head>
 <body>
 
+    <!-- Logo superior esquerda -->
     <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo" class="logo logo-top-left">
 
     <div class="gallery-wrapper">
@@ -220,6 +208,7 @@
         </div>
     </div>
 
+    <!-- Logo inferior direita -->
     <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo" class="logo logo-bottom-right">
 
 </body>
