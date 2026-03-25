@@ -26,11 +26,9 @@
             position: relative;
         }
 
-    
+        /* Estilo base para ambas as logos */
         .logo {
             position: fixed;
-            bottom: -30px;
-            right: 30px;
             z-index: 100;
             max-width: 200px;
             max-height: 200px;
@@ -42,6 +40,18 @@
 
         .logo:hover {
             opacity: 1;
+        }
+
+        /* Logo inferior direita */
+        .logo-bottom-right {
+            bottom: -30px;
+            right: 30px;
+        }
+
+        /* Logo superior esquerda */
+        .logo-top-left {
+            top: -30px;
+            left: 30px;
         }
 
         .video-container {
@@ -68,14 +78,22 @@
             }
             
             body {
-                padding: 10px;
+                padding: 70px 10px 70px 10px;
             }
 
             .logo {
-                bottom: -10px;
-                right: 13px;
                 max-width: 100px;
                 max-height: 100px;
+            }
+
+            .logo-bottom-right {
+                bottom: 0px;
+                right: 13px;
+            }
+
+            .logo-top-left {
+                top: 0px;
+                left: 13px;
             }
         }
 
@@ -84,18 +102,31 @@
                 max-height: 85vh;
             }
 
+            body {
+                padding: 55px 10px 55px 10px;
+            }
+
             .logo {
-                bottom: -10px;
+                max-width: 65px;
+                max-height: 65px;
+            }
+
+            .logo-bottom-right {
+                bottom: 0px;
                 right: 13px;
-                max-width: 100px;
-                max-height: 100px;
+            }
+
+            .logo-top-left {
+                top: 0px;
+                left: 13px;
             }
         }
     </style>
 </head>
 <body>
 
-    <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo" class="logo">
+    <!-- Logo superior esquerda -->
+    <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo" class="logo logo-top-left">
 
     <div class="video-container">
         <video controls>
@@ -103,5 +134,9 @@
             Seu navegador não suporta a tag de vídeo.
         </video>
     </div>
+
+    <!-- Logo inferior direita -->
+    <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo" class="logo logo-bottom-right">
+
 </body>
 </html>
