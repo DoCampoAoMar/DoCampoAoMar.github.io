@@ -26,7 +26,6 @@
             position: relative;
         }
 
-        /* Container transparente e elegante para a galeria */
         .gallery-wrapper {
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(3px);
@@ -38,7 +37,7 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
-        /* Estilo para as imagens mais pequenas e centradas */
+
         .gallery-img {
             width: 100%;
             height: auto;
@@ -53,19 +52,19 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* Ajuste do grid para centralizar perfeitamente */
+
         .grid {
             justify-items: center;
             align-items: center;
         }
 
-        /* Cada item do grid terá as imagens centralizadas */
+
         .grid > * {
             display: flex;
             justify-content: center;
         }
 
-        /* Estilo aged e torn-frame mantidos igual ao original */
+
         .aged {
             filter: sepia(0.15) contrast(1.02);
             transition: all 0.3s ease;
@@ -84,7 +83,7 @@
             border-radius: 12px;
         }
 
-        /* Estilo para ambas as logos (mesmas características) */
+
         .logo {
             position: fixed;
             z-index: 100;
@@ -100,19 +99,18 @@
             opacity: 1;
         }
 
-        /* Logo inferior direita - EXATAMENTE como pedido: bottom: -10px; right: 13px */
+
         .logo-bottom-right {
-            bottom: -20px;
+            bottom: -50px;
             right: 13px;
         }
 
-        /* Logo superior esquerda - MESMAS CARACTERÍSTICAS: top: -10px; left: 13px */
         .logo-top-left {
-            top: -20px;
+            top: -50px;
             left: 13px;
         }
 
-        /* Responsividade para telas menores */
+
         @media (max-width: 768px) {
             .logo {
                 max-width: 100px;
@@ -141,10 +139,10 @@
 </head>
 <body>
 
-    <!-- Logo superior esquerda - MESMAS CARACTERÍSTICAS: top -10px left 13px -->
+
     <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo" class="logo logo-top-left">
 
-    <!-- Container transparente com galeria centralizada -->
+
     <div class="gallery-wrapper">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center items-center">
             <div>
@@ -171,7 +169,7 @@
         </div>
     </div>
 
-    <!-- Logo inferior direita - POSIÇÃO ORIGINAL MANTIDA: bottom -10px right 13px -->
+
     <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo" class="logo logo-bottom-right">
 
 </body>
