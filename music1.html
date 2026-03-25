@@ -27,7 +27,6 @@
             background-attachment: fixed;
         }
 
-       
         body {
             background-color: #1a1a2e;
         }
@@ -41,6 +40,34 @@
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.6);
             z-index: 1;
+        }
+
+        /* Estilo base para ambas as logos */
+        .logo {
+            position: fixed;
+            z-index: 100;
+            max-width: 200px;
+            max-height: 200px;
+            width: auto;
+            height: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 1;
+        }
+
+        /* Logo inferior direita */
+        .logo-bottom-right {
+            bottom: -30px;
+            right: 30px;
+        }
+
+        /* Logo superior esquerda */
+        .logo-top-left {
+            top: -30px;
+            left: 30px;
         }
 
         .audio-container {
@@ -75,46 +102,16 @@
             border-radius: 20px;
         }
 
-        /* Estilo das logos - exatamente igual ao código anterior */
-        .logo {
-            position: fixed;
-            z-index: 100;
-            max-width: 200px;
-            max-height: 200px;
-            width: auto;
-            height: auto;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
-        }
-
-        .logo:hover {
-            opacity: 1;
-        }
-
-        /* Posições originais para PC */
-        .logo-bottom-right {
-            bottom: -40px;
-            right: 13px;
-        }
-
-        .logo-top-left {
-            top: -40px;
-            left: 13px;
-        }
-
-        /* Ajustes para tablets e telemóveis */
         @media (max-width: 768px) {
-            .logo {
-                max-width: 100px;
-                max-height: 100px;
-            }
-            
-            /* Ajuste no body para dar espaço às logos em mobile */
             body {
                 padding: 70px 20px 70px 20px;
             }
 
-            /* POSIÇÕES PARA MOBILE: bottom 0px right 13px e top 0px left 13px */
+            .logo {
+                max-width: 100px;
+                max-height: 100px;
+            }
+
             .logo-bottom-right {
                 bottom: 0px;
                 right: 13px;
@@ -123,41 +120,6 @@
             .logo-top-left {
                 top: 0px;
                 left: 13px;
-            }
-        }
-
-        /* Ajuste para modo paisagem (horizontal) no telemóvel */
-        @media (max-width: 900px) and (orientation: landscape) {
-            body {
-                padding: 55px 20px 55px 20px;
-            }
-            
-            .logo {
-                max-width: 65px;
-                max-height: 65px;
-            }
-
-            /* Mantém as posições corrigidas também em landscape */
-            .logo-bottom-right {
-                bottom: 0px;
-                right: 13px;
-            }
-
-            .logo-top-left {
-                top: 0px;
-                left: 13px;
-            }
-        }
-
-        /* Para tablets em modo retrato */
-        @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-            body {
-                padding: 80px 20px 80px 20px;
-            }
-            
-            .logo {
-                max-width: 120px;
-                max-height: 120px;
             }
         }
 
@@ -169,6 +131,27 @@
             .audio-info {
                 font-size: 12px;
                 margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 900px) and (orientation: landscape) {
+            body {
+                padding: 55px 20px 55px 20px;
+            }
+            
+            .logo {
+                max-width: 65px;
+                max-height: 65px;
+            }
+
+            .logo-bottom-right {
+                bottom: 0px;
+                right: 13px;
+            }
+
+            .logo-top-left {
+                top: 0px;
+                left: 13px;
             }
         }
       
