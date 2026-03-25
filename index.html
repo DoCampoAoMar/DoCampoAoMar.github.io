@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         * {
@@ -22,28 +22,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 70px 20px 70px 20px; /* Espaço superior e inferior para as logos não sobreporem conteúdo */
+            padding: 20px;
             position: relative;
         }
 
-        /* Container da galeria - responsivo e com margens seguras */
         .gallery-wrapper {
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(3px);
-            border-radius: 1.5rem;
-            padding: 1.5rem 1rem;
+            border-radius: 2rem;
+            padding: 2rem 1.5rem;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
         }
 
-        /* Estilo para as imagens - tamanho adaptável e elegante */
         .gallery-img {
             width: 100%;
             height: auto;
-            max-width: 180px;
+            max-width: 160px;
             margin: 0 auto;
             display: block;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -54,76 +51,16 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* Grid responsivo - adapta para todos os tamanhos */
-        .custom-grid {
-            display: grid;
-            gap: 1.25rem;
+        .grid {
             justify-items: center;
             align-items: center;
         }
 
-        /* Diferentes layouts para diferentes tamanhos de ecrã */
-        @media (min-width: 1024px) {
-            .custom-grid {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 1.5rem;
-            }
+        .grid > * {
+            display: flex;
+            justify-content: center;
         }
 
-        @media (min-width: 768px) and (max-width: 1023px) {
-            .custom-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .custom-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 1rem;
-            }
-        }
-
-        /* Para telemóveis em modo paisagem (horizontal) */
-        @media (max-width: 900px) and (orientation: landscape) {
-            body {
-                padding: 65px 20px 65px 20px;
-            }
-            
-            .custom-grid {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 0.8rem;
-            }
-            
-            .gallery-img {
-                max-width: 110px;
-            }
-            
-            .gallery-wrapper {
-                padding: 1rem;
-            }
-            
-            .torn-frame {
-                padding: 3px;
-            }
-        }
-
-        /* Para telemóveis muito pequenos em modo retrato */
-        @media (max-width: 480px) {
-            .gallery-img {
-                max-width: 130px;
-            }
-            
-            .gallery-wrapper {
-                padding: 1rem 0.75rem;
-            }
-            
-            .custom-grid {
-                gap: 0.8rem;
-            }
-        }
-
-        /* Estilo aged e torn-frame mantidos */
         .aged {
             filter: sepia(0.15) contrast(1.02);
             transition: all 0.3s ease;
@@ -136,14 +73,12 @@
             background: rgba(245, 240, 225, 0.3);
             box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
             display: inline-block;
-            width: 100%;
         }
 
         .rounded-xl {
             border-radius: 12px;
         }
 
-        /* Estilo para as logos - fixas mas sem sobrepor conteúdo */
         .logo {
             position: fixed;
             z-index: 100;
@@ -152,205 +87,113 @@
             width: auto;
             height: auto;
             opacity: 0.9;
-            transition: opacity 0.3s ease, transform 0.2s ease;
-            pointer-events: auto;
+            transition: opacity 0.3s ease;
         }
 
         .logo:hover {
             opacity: 1;
-            transform: scale(1.02);
         }
 
-        /* Logo inferior direita - ajustado para não sobrepor em mobile */
         .logo-bottom-right {
-            bottom: 15px;
-            right: 15px;
+            bottom: -40px;
+            right: 13px;
         }
 
-        /* Logo superior esquerda - ajustado para não sobrepor em mobile */
         .logo-top-left {
-            top: 15px;
-            left: 15px;
+            top: -40px;
+            left: 13px;
         }
 
-        /* Responsividade para tablets e telemóveis - ajuste fino das logos */
+        /* Ajustes apenas para mobile - mantendo todo o resto igual */
         @media (max-width: 768px) {
+            .logo {
+                max-width: 100px;
+                max-height: 100px;
+            }
+            
+            .gallery-wrapper {
+                padding: 1.5rem 1rem;
+            }
+            
+            .gallery-img {
+                max-width: 130px;
+            }
+
+            /* Ajuste para evitar sobreposição em mobile */
+            body {
+                padding: 70px 20px 70px 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .gallery-img {
+                max-width: 110px;
+            }
+            
+            .torn-frame {
+                padding: 3px;
+            }
+        }
+
+        /* Ajuste para modo paisagem (horizontal) no telemóvel */
+        @media (max-width: 900px) and (orientation: landscape) {
+            body {
+                padding: 60px 20px 60px 20px;
+            }
+            
+            .gallery-img {
+                max-width: 100px;
+            }
+            
+            .gallery-wrapper {
+                padding: 1rem;
+            }
+            
             .logo {
                 max-width: 70px;
                 max-height: 70px;
             }
-            
-            .logo-bottom-right {
-                bottom: 12px;
-                right: 12px;
-            }
-            
-            .logo-top-left {
-                top: 12px;
-                left: 12px;
-            }
-        }
-
-        /* Para telemóveis muito pequenos */
-        @media (max-width: 480px) {
-            .logo {
-                max-width: 55px;
-                max-height: 55px;
-            }
-            
-            .logo-bottom-right {
-                bottom: 10px;
-                right: 10px;
-            }
-            
-            .logo-top-left {
-                top: 10px;
-                left: 10px;
-            }
-        }
-
-        /* Para telemóveis em modo paisagem - logos ainda menores para não atrapalhar */
-        @media (max-width: 900px) and (orientation: landscape) {
-            .logo {
-                max-width: 50px;
-                max-height: 50px;
-            }
-            
-            .logo-bottom-right {
-                bottom: 8px;
-                right: 8px;
-            }
-            
-            .logo-top-left {
-                top: 8px;
-                left: 8px;
-            }
-            
-            body {
-                padding: 55px 15px 55px 15px;
-            }
         }
 
         /* Para tablets em modo retrato */
-        @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-            .logo {
-                max-width: 85px;
-                max-height: 85px;
+        @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+            body {
+                padding: 80px 20px 80px 20px;
             }
-            
-            .gallery-img {
-                max-width: 160px;
-            }
-        }
-
-        /* Para tablets em modo paisagem */
-        @media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
-            .gallery-img {
-                max-width: 170px;
-            }
-        }
-
-        /* Garantir que o grid não quebra em nenhum dispositivo */
-        .custom-grid > * {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-
-        /* Scroll suave para melhor experiência */
-        html {
-            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
 
-    <!-- Logo superior esquerda - responsiva e sem sobreposição -->
-    <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo ETIC Algarve" class="logo logo-top-left">
+    <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo" class="logo logo-top-left">
 
-    <!-- Container principal da galeria - adapta-se a todos os ecrãs -->
     <div class="gallery-wrapper">
-        <div class="custom-grid">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center items-center">
             <div>
-                <img src="/imagens/video1.png" class="aged torn-frame rounded-xl gallery-img" alt="Vídeo 1">
+                <img src="/imagens/video1.png" class="aged torn-frame rounded-xl gallery-img" alt="">
             </div>
             <div>
-                <img src="/imagens/video2.png" class="aged torn-frame rounded-xl gallery-img" alt="Vídeo 2">
+                <img src="/imagens/video2.png" class="aged torn-frame rounded-xl gallery-img" alt="">
             </div>
             <div>
-                <img src="/imagens/video3.png" class="aged torn-frame rounded-xl gallery-img" alt="Vídeo 3">
+                <img src="/imagens/video3.png" class="aged torn-frame rounded-xl gallery-img" alt="">
             </div>
             <div>
-                <img src="/imagens/video4.png" class="aged torn-frame rounded-xl gallery-img" alt="Vídeo 4">
+                <img src="/imagens/video4.png" class="aged torn-frame rounded-xl gallery-img" alt="">
             </div>
             <div>
-                <img src="/imagens/video5.png" class="aged torn-frame rounded-xl gallery-img" alt="Vídeo 5">
+                <img src="/imagens/video5.png" class="aged torn-frame rounded-xl gallery-img" alt="">
             </div>
             <div>
-                <img src="/imagens/music1.png" class="aged torn-frame rounded-xl gallery-img" alt="Música 1">
+                <img src="/imagens/music1.png" class="aged torn-frame rounded-xl gallery-img" alt="">
             </div>
             <div>
-                <img src="/imagens/music2.png" class="aged torn-frame rounded-xl gallery-img" alt="Música 2">
+                <img src="/imagens/music2.png" class="aged torn-frame rounded-xl gallery-img" alt="">
             </div>
         </div>
     </div>
 
-    <!-- Logo inferior direita - responsiva e sem sobreposição -->
-    <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo ETIC Algarve" class="logo logo-bottom-right">
+    <img src="imagens/ETIC_Algarve-Logo.png" alt="Logotipo" class="logo logo-bottom-right">
 
-    <!-- Script para garantir que as imagens carregam corretamente e ajustar caso necessário -->
-    <script>
-        (function() {
-            // Função para verificar se as imagens estão a carregar
-            const images = document.querySelectorAll('.gallery-img');
-            images.forEach(img => {
-                img.addEventListener('error', function() {
-                    // Fallback silencioso caso a imagem não exista
-                    this.style.opacity = '0.7';
-                    this.style.backgroundColor = '#c0a86a';
-                    this.style.minHeight = '100px';
-                    this.style.objectFit = 'contain';
-                });
-                
-                img.addEventListener('load', function() {
-                    this.style.opacity = '1';
-                });
-            });
-            
-            // Ajuste para garantir que em modo paisagem no telemóvel o conteúdo não fica escondido
-            function handleOrientation() {
-                const body = document.body;
-                const wrapper = document.querySelector('.gallery-wrapper');
-                
-                if (window.innerWidth <= 900 && window.innerHeight <= 600) {
-                    // Modo paisagem em telemóvel
-                    if (wrapper) {
-                        wrapper.style.padding = '0.8rem';
-                    }
-                } else {
-                    if (wrapper && window.innerWidth <= 768) {
-                        wrapper.style.padding = '1rem';
-                    } else if (wrapper) {
-                        wrapper.style.padding = '1.5rem';
-                    }
-                }
-            }
-            
-            // Executar ao carregar e ao redimensionar/mudar orientação
-            window.addEventListener('load', handleOrientation);
-            window.addEventListener('resize', handleOrientation);
-            window.addEventListener('orientationchange', function() {
-                setTimeout(handleOrientation, 100);
-            });
-            
-            // Garantir que as logos não interferem com cliques no conteúdo
-            const logos = document.querySelectorAll('.logo');
-            logos.forEach(logo => {
-                logo.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                });
-            });
-        })();
-    </script>
 </body>
 </html>
